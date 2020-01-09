@@ -17,15 +17,15 @@ $_ENV['version'] = '1';	//仅当涉及【需要修改config以外的文件】时
 //基本设置--------------------------------------------------------------------------------------------
 $_ENV['key'] = '1145141919810';						//!!! 瞎 jb 修改此key为随机字符串确保网站安全 !!!
 $_ENV['debug'] =  false;								//正式环境请确保为 false
-$_ENV['appName'] = 'sspanel';							//站点名称
-$_ENV['baseUrl'] = 'http://url.com';					//站点地址
+$_ENV['appName'] = 'langlilangclub';							//站点名称
+$_ENV['baseUrl'] = 'http://langlilangclub.com';					//站点地址
 $_ENV['subUrl'] = $_ENV['baseUrl'] . '/link/';	//订阅地址，如需和站点名称相同，请不要修改
-$_ENV['muKey'] = 'default_mu_key';								//用于校验魔改后端请求，可以随意修改，但请保持前后端一致，否则节点不能工作！
+$_ENV['muKey'] = 'langlilang';								//用于校验魔改后端请求，可以随意修改，但请保持前后端一致，否则节点不能工作！
 $_ENV['db_driver'] = 'mysql';							//数据库程序
 $_ENV['db_host'] = 'localhost';						//数据库地址
-$_ENV['db_database'] = 'sspanel';						//数据库名
-$_ENV['db_username'] = 'root';							//数据库用户名
-$_ENV['db_password'] = 'sspanel';						//用户名对应的密码
+$_ENV['db_database'] = 'langlilang';						//数据库名
+$_ENV['db_username'] = 'langlilang';							//数据库用户名
+$_ENV['db_password'] = 'asd#@001++';						//用户名对应的密码
 
 
 //邮件设置--------------------------------------------------------------------------------------------

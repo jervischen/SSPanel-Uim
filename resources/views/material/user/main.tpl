@@ -83,7 +83,7 @@
                         <li>
                             <a href="/user/edit"><i class="icon icon-lg">sync_problem</i>&nbsp;资料编辑</a>
                         </li>
-
+                        {if $user->isAdmin()}
                         <li>
                             <a href="/user/trafficlog"><i class="icon icon-lg">hourglass_empty</i>&nbsp;流量记录</a>
                         </li>
@@ -97,11 +97,13 @@
                         <li>
                             <a href="/user/invite"><i class="icon icon-lg">loyalty</i>&nbsp;邀请链接</a>
                         </li>
+                        {/if}
                     </ul>
 
 
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_use">使用</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_use">
+                        {if $user->isAdmin()}
                         <li>
                             <a href="/user/node"><i class="icon icon-lg">airplanemode_active</i>&nbsp;节点列表</a>
                         </li>
@@ -117,18 +119,18 @@
                         <li>
                             <a href="/user/announcement"><i class="icon icon-lg">announcement</i>&nbsp;网站公告</a>
                         </li>
-
+                        {/if}
                         <li>
                             <a href="/user/tutorial"><i class="icon icon-lg">start</i>&nbsp;使用教程</a>
                         </li>
                     </ul>
-
+                    {if $user->isAdmin()}
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_detect">审计</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_detect">
                         <li><a href="/user/detect"><i class="icon icon-lg">account_balance</i>&nbsp;审计规则</a></li>
                         <li><a href="/user/detect/log"><i class="icon icon-lg">assignment_late</i>&nbsp;审计记录</a></li>
                     </ul>
-
+                    {/if}
                     <a class="waves-attach" data-toggle="collapse" href="#ui_menu_help">商店</a>
                     <ul class="menu-collapse collapse in" id="ui_menu_help">
                         <li>
@@ -138,7 +140,7 @@
                         <li>
                             <a href="/user/shop"><i class="icon icon-lg">shop</i>&nbsp;套餐购买</a>
                         </li>
-
+                        {if $user->isAdmin()}
                         <li><a href="/user/bought"><i class="icon icon-lg">shopping_cart</i>&nbsp;购买记录</a></li>
 
                         {if $config['enable_donate']=='true'}
@@ -146,7 +148,7 @@
                                 <a href="/user/donate"><i class="icon icon-lg">attach_money</i>&nbsp;捐赠公示</a>
                             </li>
                         {/if}
-
+                        {/if}
                     </ul>
 
                     {if $user->isAdmin()}
