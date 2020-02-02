@@ -90,7 +90,7 @@ class AuthController extends BaseController
         $email = trim($email);
         $email = strtolower($email);
         $passwd = $request->getParam('passwd');
-        $code = $request->getParam('code');
+//        $code = $request->getParam('code');
         $rememberMe = $request->getParam('remember_me');
 
         if (Config::get('enable_login_captcha') === 'true') {
@@ -144,16 +144,16 @@ class AuthController extends BaseController
             $time = 3600 * 24 * (Config::get('rememberMeDuration') ?: 7);
         }
 
-        if ($user->ga_enable == 1) {
-            $ga = new GA();
-            $rcode = $ga->verifyCode($user->ga_token, $code);
-
-            if (!$rcode) {
-                $res['ret'] = 0;
-                $res['msg'] = '两步验证码错误，如果您是丢失了生成器或者错误地设置了这个选项，您可以尝试重置密码，即可取消这个选项。';
-                return $response->getBody()->write(json_encode($res));
-            }
-        }
+//        if ($user->ga_enable == 1) {
+//            $ga = new GA();
+//            $rcode = $ga->verifyCode($user->ga_token, $code);
+//
+//            if (!$rcode) {
+//                $res['ret'] = 0;
+//                $res['msg'] = '两步验证码错误，如果您是丢失了生成器或者错误地设置了这个选项，您可以尝试重置密码，即可取消这个选项。';
+//                return $response->getBody()->write(json_encode($res));
+//            }
+//        }
 
         Auth::login($user->id, $time);
         $rs['ret'] = 1;

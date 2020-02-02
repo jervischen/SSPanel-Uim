@@ -17,7 +17,8 @@
                         <div class="card-main">
                             <div class="card-inner">
                                 <div class="card-inner">
-                                    <p class="card-heading">注意!</p>
+                                    <p class="card-heading">注意!请添加管理员微信索取充值码</p>
+                                    <img src="/images/WechatIMG2.jpeg" width="200px" height="200px">
                                     <p>充值完成后需刷新网页以查看余额，通常一分钟内到账。</p>
                                     <p>因余额不足而未能完成的自动续费，在余额足够时会自动划扣续费。</p>
                                     {if $config["enable_admin_contact"] == 'true'}
@@ -72,13 +73,17 @@
                                 <div class="card-inner">
                                     <div class="cardbtn-edit">
                                         <div class="card-heading">充值码</div>
-                                        <button class="btn btn-flat" id="code-update">
-                                            <span class="icon">favorite_border</span>
-                                        </button>
+
                                     </div>
                                     <div class="form-group form-group-label">
                                         <label class="floating-label" for="code">充值码</label>
                                         <input class="form-control maxwidth-edit" id="code" type="text">
+                                        <br>
+                                        <br>
+                                        <button id="code-update" class="copy-text btn btn-subscription" type="button" >充值</button>
+                                        &nbsp;&nbsp;
+                                        <a href="/user/shop" class="copy-text btn btn-subscription" type="button" >购买套餐</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -188,9 +193,9 @@
                 },
                 error: (jqXHR) => {
                     $("#result").modal();
-{literal}
+                    {literal}
                     $$.getElementById('msg').innerHTML = `发生错误：${jqXHR.status}`;
-{/literal}
+                    {/literal}
                 }
             })
         })
