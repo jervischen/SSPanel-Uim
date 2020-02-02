@@ -58,7 +58,7 @@ $app->get('/405', App\Controllers\HomeController::class . ':page405');
 $app->get('/500', App\Controllers\HomeController::class . ':page500');
 $app->post('/notify', App\Controllers\HomeController::class . ':notify');
 $app->get('/tos', App\Controllers\HomeController::class . ':tos');
-$app->get('/staff', App\Controllers\HomeController::class . ':staff');
+//$app->get('/staff', App\Controllers\HomeController::class . ':staff');
 $app->post('/telegram_callback', App\Controllers\HomeController::class . ':telegram');
 
 // User Center
