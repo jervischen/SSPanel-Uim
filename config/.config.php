@@ -171,7 +171,7 @@ $System_Config['recaptcha_secret'] = '';
 $System_Config['geetest_id'] = '';
 $System_Config['geetest_key'] = '';
 
-$System_Config['enable_reg_captcha'] = 'false';		//启用注册验证码
+$System_Config['enable_reg_captcha'] = 'true';		//启用注册验证码
 $System_Config['enable_login_captcha'] = 'false';	//启用登录验证码
 $System_Config['enable_checkin_captcha'] = 'false';	//启用签到验证码
 
