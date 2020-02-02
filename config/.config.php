@@ -20,7 +20,7 @@ $System_Config['debug'] =  false;								//正式环境请确保为 false
 $System_Config['appName'] = 'langlilangclub';							//站点名称
 $System_Config['baseUrl'] = 'http://langlilang.club';					//站点地址
 $System_Config['subUrl'] = $System_Config['baseUrl'].'/link/';	//订阅地址，如需和站点名称相同，请不要修改
-$System_Config['muKey'] = 'NimaQu';								//用于校验魔改后端请求，可以随意修改，但请保持前后端一致，否则节点不能工作！
+$System_Config['muKey'] = 'jervis';								//用于校验魔改后端请求，可以随意修改，但请保持前后端一致，否则节点不能工作！
 $System_Config['db_driver'] = 'mysql';							//数据库程序
 $System_Config['db_host'] = 'localhost';						//数据库地址
 $System_Config['db_database'] = 'langlilang';						//数据库名
@@ -29,7 +29,7 @@ $System_Config['db_password'] = 'asd#@001++';						//用户名对应的密码
 
 
 //邮件设置--------------------------------------------------------------------------------------------
-$System_Config['mailDriver'] = 'none';	//发送邮件方式：none / mailgun / smtp / sendgrid
+$System_Config['mailDriver'] = 'smtp';	//发送邮件方式：none / mailgun / smtp / sendgrid
 $System_Config['sendPageLimit']= 50;	//发信分页 解决大站发公告超时问题
 
 # mailgun
@@ -38,12 +38,12 @@ $System_Config['mailgun_domain'] = '';
 $System_Config['mailgun_sender'] = '';
 
 # smtp
-$System_Config['smtp_host'] = '';
-$System_Config['smtp_username'] = '';
+$System_Config['smtp_host'] = 'smtp.qq.com';
+$System_Config['smtp_username'] = '837150034@qq.com';
 $System_Config['smtp_port'] = '465';
-$System_Config['smtp_name'] = '';
-$System_Config['smtp_sender'] = '';
-$System_Config['smtp_passsword'] = '';
+$System_Config['smtp_name'] = '837150034@qq.com';
+$System_Config['smtp_sender'] = '837150034@qq.com';
+$System_Config['smtp_passsword'] = 'yrdebqscuogybdbi';
 $System_Config['smtp_ssl'] = 'true';
 
 # sendgrid
@@ -52,14 +52,14 @@ $System_Config['sendgrid_sender'] = '';
 
 
 //备份设置--------------------------------------------------------------------------------------------
-$System_Config['auto_backup_email']='';		//接收备份的邮箱
-$System_Config['auto_backup_passwd']='';	//备份的压缩密码
-$System_Config['backup_notify']='true';		//备份通知到TG群中
+$System_Config['auto_backup_email']='837150034@qq.com';		//接收备份的邮箱
+$System_Config['auto_backup_passwd']='zxc';	//备份的压缩密码
+$System_Config['backup_notify']='false';		//备份通知到TG群中
 
 
 //用户注册设置-----------------------------------------------------------------------------------------
 $System_Config['register_mode'] = 'open';					//注册模式。close：关闭，open：开放，invite：仅限邀请码
-$System_Config['defaultTraffic'] = '1';						//用户初始流量 单位GB
+$System_Config['defaultTraffic'] = '0';						//用户初始流量 单位GB
 $System_Config['user_expire_in_default']='3650';			//用户账户过期时间，在注册时设置。（天）
 $System_Config['user_class_default']='0';					//用户注册等级，在注册时设置。
 $System_Config['user_class_expire_default']='24';			//用户等级过期时间，在注册时设置。（小时）
@@ -77,7 +77,7 @@ $System_Config['reg_forbidden_ip']='127.0.0.0/8,::1/128';	//注册时默认禁�
 $System_Config['min_port']='10000';							//用户端口池最小值
 $System_Config['max_port']='65535';							//用户端口池最大值
 $System_Config['reg_forbidden_port']='';					//注册时默认禁止访问端口列表，半角英文逗号分割，支持端口段
-$System_Config['mu_suffix']='microsoft.com';				//单端口多用户混淆参数后缀，可以随意修改，但请保持前后端一致
+$System_Config['mu_suffix']='langlilang.com';				//单端口多用户混淆参数后缀，可以随意修改，但请保持前后端一致
 $System_Config['mu_regex']='%5m%id.%suffix';				//单端口多用户混淆参数表达式，%5m代表取用户特征 md5 的前五位，%id 代表用户id,%suffix 代表上面这个后缀。
 
 #邀请链接
@@ -156,9 +156,9 @@ $System_Config['ScFtqq_SCKEY'] = '';	//请填写您在Server酱获取的SCKEY  �
 
 #管理员联系方式设置
 $System_Config['enable_admin_contact']='false';			//是否开启管理员联系方式
-$System_Config['admin_contact1'] = 'QQ：1233456';		//QQ、邮箱、微信仅用于举例
-$System_Config['admin_contact2'] = '邮箱123456@qq.com';	//也可以写电话、tg等其他联系方式
-$System_Config['admin_contact3'] = '微信～123456';		//没有格式要求，想怎么写就怎么写，可留空
+$System_Config['admin_contact1'] = 'QQ：837150034';		//QQ、邮箱、微信仅用于举例
+$System_Config['admin_contact2'] = '邮箱837150034@qq.com';	//也可以写电话、tg等其他联系方式
+$System_Config['admin_contact3'] = '微信:837150034';		//没有格式要求，想怎么写就怎么写，可留空
 
 
 //验证码设置------------------------------------------------------------------------------------------
