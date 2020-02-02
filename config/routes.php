@@ -83,6 +83,7 @@ $app->group('/user', function () {
 
     $this->get('/shop', App\Controllers\UserController::class . ':shop');
     $this->post('/coupon_check', App\Controllers\UserController::class . ':CouponCheck');
+    $this->post('/no_coupon', App\Controllers\UserController::class . ':noCoupon');
     $this->post('/buy', App\Controllers\UserController::class . ':buy');
 
     // Relay Mange

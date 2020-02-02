@@ -501,7 +501,7 @@ class UserController extends BaseController
 
             $sort = $array_node['sort'];
             $array_node['online_user'] = 0;
-            
+
             foreach ($onlineLogs as $log) {
                 if ($log['node_id'] != $node->id) {
                     continue;
@@ -513,12 +513,12 @@ class UserController extends BaseController
                 }
                 break;
             }
-            
-            // check node status 
+
+            // check node status
             // 0: new node; -1: offline; 1: online
             $node_heartbeat = $node->node_heartbeat + 300;
             $array_node['online'] = -1;
-            if (!in_array($sort, array(0, 7, 8, 10, 11, 12, 13)) || $node_heartbeat == 300 ) {
+            if (!in_array($sort, array(0, 7, 8, 10, 11, 12, 13)) || $node_heartbeat == 300) {
                 $array_node['online'] = 0;
             } elseif ($node_heartbeat > time()) {
                 $array_node['online'] = 1;
@@ -744,11 +744,11 @@ class UserController extends BaseController
         foreach ($totallogin as $single) {
             //if(isset($useripcount[$single->userid]))
             {
-            if (!isset($userloginip[$single->ip])) {
-                //$useripcount[$single->userid]=$useripcount[$single->userid]+1;
-                $location = $iplocation->getlocation($single->ip);
-                $userloginip[$single->ip] = iconv('gbk', 'utf-8//IGNORE', $location['country'] . $location['area']);
-            }
+                if (!isset($userloginip[$single->ip])) {
+                    //$useripcount[$single->userid]=$useripcount[$single->userid]+1;
+                    $location = $iplocation->getlocation($single->ip);
+                    $userloginip[$single->ip] = iconv('gbk', 'utf-8//IGNORE', $location['country'] . $location['area']);
+                }
             }
         }
 
@@ -757,16 +757,16 @@ class UserController extends BaseController
             {
                 $single->ip = Tools::getRealIp($single->ip);
                 $is_node = Node::where('node_ip', $single->ip)->first();
-            if ($is_node) {
-                continue;
-            }
+                if ($is_node) {
+                    continue;
+                }
 
 
-            if (!isset($userip[$single->ip])) {
-                //$useripcount[$single->userid]=$useripcount[$single->userid]+1;
-                $location = $iplocation->getlocation($single->ip);
-                $userip[$single->ip] = iconv('gbk', 'utf-8//IGNORE', $location['country'] . $location['area']);
-            }
+                if (!isset($userip[$single->ip])) {
+                    //$useripcount[$single->userid]=$useripcount[$single->userid]+1;
+                    $location = $iplocation->getlocation($single->ip);
+                    $userip[$single->ip] = iconv('gbk', 'utf-8//IGNORE', $location['country'] . $location['area']);
+                }
             }
         }
 
@@ -979,6 +979,32 @@ class UserController extends BaseController
         $shops = Shop::where('status', 1)->orderBy('name')->get();
         return $this->view()->assign('shops', $shops)->display('user/shop.tpl');
     }
+
+    public function noCoupon($request, $response, $args)
+    {
+        $user = $this->user;
+        if (!$user->isLogin) {
+            $res['ret'] = -1;
+            return $response->getBody()->write(json_encode($res));
+        }
+
+        $shop = $request->getParam('shop');
+
+        $shop = Shop::where('id', $shop)->where('status', 1)->first();
+
+        if ($shop == null) {
+            $res['ret'] = 0;
+            $res['msg'] = '非法请求';
+            return $response->getBody()->write(json_encode($res));
+        }
+
+        $res['ret'] = 1;
+        $res['name'] = $shop->name;
+        $res['credit'] = '0 %';
+        $res['total'] = $shop->price . '元';
+        return $response->getBody()->write(json_encode($res));
+    }
+
 
     public function CouponCheck($request, $response, $args)
     {

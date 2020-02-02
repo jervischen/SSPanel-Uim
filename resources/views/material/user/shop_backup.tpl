@@ -197,15 +197,15 @@
                             </div>
                             <div class="modal-inner">
                                 <p id="name">商品名称：</p>
-{*                                <p id="credit">优惠额度：</p>*}
+                                <p id="credit">优惠额度：</p>
                                 <p id="total">总金额：</p>
 
-{*                                <div class="checkbox switch">*}
-{*                                    <label for="disableothers">*}
-{*                                        <input checked class="access-hide" id="disableothers" type="checkbox">*}
-{*                                        <span class="switch-toggle"></span>关闭旧套餐自动续费*}
-{*                                    </label>*}
-{*                                </div>*}
+                                <div class="checkbox switch">
+                                    <label for="disableothers">
+                                        <input checked class="access-hide" id="disableothers" type="checkbox">
+                                        <span class="switch-toggle"></span>关闭旧套餐自动续费
+                                    </label>
+                                </div>
                                 <br/>
                                 <div class="checkbox switch" id="autor">
                                     <label for="autorenew">
@@ -240,7 +240,6 @@
 
 
 <script>
-    let shop;
     function buy(id, auto) {
         if (auto == 0) {
             document.getElementById('autor').style.display = "none";
@@ -248,8 +247,7 @@
             document.getElementById('autor').style.display = "";
         }
         shop = id;
-     //   $("#coupon_modal").modal();
-        noCoupon();
+        $("#coupon_modal").modal();
     }
 
     ;(function () {
@@ -293,13 +291,13 @@
                 if (data.ret) {
                     $$.getElementById('name').innerHTML = `商品名称：${
                             data.name
-                    }`;
+                            }`;
                     $$.getElementById('credit').innerHTML = `优惠额度：${
                             data.credit
-                    }`;
+                            }`;
                     $$.getElementById('total').innerHTML = `总金额：${
                             data.total
-                    }`;
+                            }`;
                     $("#order_modal").modal();
                 } else {
                     $("#result").modal();
@@ -310,47 +308,10 @@
                 $("#result").modal();
                 $$.getElementById('msg').innerHTML = `${
                         data.msg
-                } 发生了错误`;
+                        } 发生了错误`;
             }
         })
     });
-
-
-
-
-    function noCoupon(){
-        $.ajax({
-            type: "POST",
-            url: "no_coupon",
-            dataType: "json",
-            data: {
-                shop:shop
-            },
-            success: (data) => {
-                if (data.ret) {
-                    $$.getElementById('name').innerHTML = `商品名称：${
-                            data.name
-                    }`;
-                    // $$.getElementById('credit').innerHTML = `优惠额度：${
-                    //         data.credit
-                    // }`;
-                    $$.getElementById('total').innerHTML = `总金额：${
-                            data.total
-                    }`;
-                    $("#order_modal").modal();
-                } else {
-                    $("#result").modal();
-                    $$.getElementById('msg').innerHTML = data.msg;
-                }
-            },
-            error: (jqXHR) => {
-                $("#result").modal();
-                $$.getElementById('msg').innerHTML = `${
-                        data.msg
-                } 发生了错误`;
-            }
-        })
-    }
 
     $("#order_input").click(function () {
 
@@ -360,13 +321,12 @@
             var autorenew = 0;
         }
 
-        // if (document.getElementById('disableothers').checked) {
-        //     var disableothers = 1;
-        // } else {
-        //     var disableothers = 0;
-        // }
+        if (document.getElementById('disableothers').checked) {
+            var disableothers = 1;
+        } else {
+            var disableothers = 0;
+        }
 
-        var disableothers = 1;
         $.ajax({
             type: "POST",
             url: "buy",
