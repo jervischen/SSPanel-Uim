@@ -77,7 +77,7 @@ $System_Config['reg_forbidden_ip']='127.0.0.0/8,::1/128';	//注册时默认禁�
 $System_Config['min_port']='10000';							//用户端口池最小值
 $System_Config['max_port']='65535';							//用户端口池最大值
 $System_Config['reg_forbidden_port']='';					//注册时默认禁止访问端口列表，半角英文逗号分割，支持端口段
-$System_Config['mu_suffix']='langlilang.com';				//单端口多用户混淆参数后缀，可以随意修改，但请保持前后端一致
+$System_Config['mu_suffix']='langlilang.club';				//单端口多用户混淆参数后缀，可以随意修改，但请保持前后端一致
 $System_Config['mu_regex']='%5m%id.%suffix';				//单端口多用户混淆参数表达式，%5m代表取用户特征 md5 的前五位，%id 代表用户id,%suffix 代表上面这个后缀。
 
 #邀请链接
